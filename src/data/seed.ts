@@ -4,6 +4,7 @@ const SEED: AppState = {
   currentRole: 'agency',
   theme: 'light',
   activeBrandName: 'Burger King',
+  isMobileMenuOpen: false,
   campaigns: [
     {
       id: 'c1',
