@@ -1,0 +1,217 @@
+import type { AppState } from './types';
+
+const SEED: AppState = {
+  currentRole: 'agency',
+  theme: 'light',
+  activeBrandName: 'Burger King',
+  campaigns: [
+    {
+      id: 'c1',
+      name: 'Glow Up Summer Campaign',
+      brand: 'LuminaSkin',
+      objective: 'Drive product awareness and sales for new SPF serum launch',
+      description: 'A multi-platform campaign targeting Gen Z and millennials around the summer skincare routine trend.',
+      startDate: '2026-07-01',
+      endDate: '2026-08-31',
+      status: 'live',
+      budget: 45000,
+      creatorIds: ['cr1', 'cr2', 'cr3', 'cr4'],
+      trackingIdentifiers: [
+        { id: 'ti1', type: 'hashtag', label: 'Main Hashtag', value: '#GlowUpWithLumina' },
+        { id: 'ti2', type: 'hashtag', label: 'Secondary Hashtag', value: '#LuminaSPF' },
+        { id: 'ti3', type: 'coupon', label: 'Creator Discount Code', value: 'GLOW20' },
+        { id: 'ti4', type: 'utm', label: 'Link UTM', value: 'utm_source=influencer&utm_campaign=glowup2026' },
+      ],
+      coverColor: '#6366f1',
+      createdAt: '2026-06-15T10:00:00Z',
+    },
+    {
+      id: 'c2',
+      name: 'TechLaunch X1 Pro',
+      brand: 'NovaTech',
+      objective: 'Generate buzz and pre-orders for the X1 Pro smartphone',
+      description: 'Tech-focused campaign with unboxing videos, reviews, and feature highlights across YouTube and TikTok.',
+      startDate: '2026-08-01',
+      endDate: '2026-09-15',
+      status: 'executing',
+      budget: 80000,
+      creatorIds: ['cr2', 'cr5', 'cr6'],
+      trackingIdentifiers: [
+        { id: 'ti5', type: 'hashtag', label: 'Campaign Hashtag', value: '#X1ProLaunch' },
+        { id: 'ti6', type: 'referral_link', label: 'Pre-order Link', value: 'novatech.com/x1pro?ref=influencer' },
+      ],
+      coverColor: '#0ea5e9',
+      createdAt: '2026-07-20T09:00:00Z',
+    },
+    {
+      id: 'c3',
+      name: 'Fit & Fresh Q3',
+      brand: 'PureBlend Nutrition',
+      objective: 'Increase protein powder subscriptions by 30% this quarter',
+      description: 'Fitness lifestyle campaign with workout content, recipe ideas, and gym routines featuring PureBlend products.',
+      startDate: '2026-09-01',
+      endDate: '2026-09-30',
+      status: 'draft',
+      budget: 30000,
+      creatorIds: ['cr3', 'cr7', 'cr8'],
+      trackingIdentifiers: [
+        { id: 'ti7', type: 'coupon', label: 'Promo Code', value: 'PURE15' },
+      ],
+      coverColor: '#10b981',
+      createdAt: '2026-08-10T14:00:00Z',
+    },
+  ],
+  creators: [
+    {
+      id: 'cr1',
+      name: 'Amara Osei',
+      avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Amara',
+      bio: 'Beauty & skincare enthusiast. I share honest reviews and tutorials.',
+      niche: ['Beauty', 'Skincare', 'Lifestyle'],
+      location: 'Lagos, Nigeria',
+      email: 'amara@creators.io',
+      platforms: [
+        { platform: 'instagram', handle: '@amaraosei', followers: 245000, verified: true },
+        { platform: 'tiktok', handle: '@amaraosei', followers: 182000, verified: false },
+        { platform: 'youtube', handle: 'Amara Osei Beauty', followers: 67000, verified: false },
+      ],
+      createdAt: '2026-01-10T00:00:00Z',
+    },
+    {
+      id: 'cr2',
+      name: 'Kofi Mensah',
+      avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Kofi',
+      bio: 'Tech reviewer & gadget lover. Helping you make smarter buying decisions.',
+      niche: ['Tech', 'Gadgets', 'Reviews'],
+      location: 'Accra, Ghana',
+      email: 'kofi@creators.io',
+      platforms: [
+        { platform: 'youtube', handle: 'Kofi Tech', followers: 512000, verified: true },
+        { platform: 'instagram', handle: '@kofitech', followers: 98000, verified: false },
+        { platform: 'x', handle: '@kofitech', followers: 44000, verified: false },
+      ],
+      createdAt: '2026-01-15T00:00:00Z',
+    },
+    {
+      id: 'cr3',
+      name: 'Zara Nwosu',
+      avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Zara',
+      bio: 'Fitness coach & healthy living advocate. Train hard, eat clean.',
+      niche: ['Fitness', 'Nutrition', 'Wellness'],
+      location: 'Abuja, Nigeria',
+      email: 'zara@creators.io',
+      platforms: [
+        { platform: 'instagram', handle: '@zarafitness', followers: 178000, verified: true },
+        { platform: 'tiktok', handle: '@zarafitness', followers: 320000, verified: true },
+      ],
+      createdAt: '2026-02-01T00:00:00Z',
+    },
+    {
+      id: 'cr4',
+      name: 'Lemi Adeyemi',
+      avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Lemi',
+      bio: 'Fashion & beauty content creator. Style is my love language.',
+      niche: ['Fashion', 'Beauty', 'Lifestyle'],
+      location: 'Lagos, Nigeria',
+      email: 'lemi@creators.io',
+      platforms: [
+        { platform: 'instagram', handle: '@lemistyle', followers: 390000, verified: true },
+        { platform: 'tiktok', handle: '@lemistyle', followers: 210000, verified: false },
+      ],
+      createdAt: '2026-02-10T00:00:00Z',
+    },
+    {
+      id: 'cr5',
+      name: 'Tunde Bankole',
+      avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Tunde',
+      bio: 'Software engineer turned content creator. Tech made simple.',
+      niche: ['Tech', 'Software', 'Education'],
+      location: 'London, UK',
+      email: 'tunde@creators.io',
+      platforms: [
+        { platform: 'youtube', handle: 'Tunde Codes', followers: 287000, verified: true },
+        { platform: 'x', handle: '@tundecodes', followers: 91000, verified: false },
+      ],
+      createdAt: '2026-03-01T00:00:00Z',
+    },
+    {
+      id: 'cr6',
+      name: 'Chisom Eze',
+      avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Chisom',
+      bio: 'Gaming & tech culture. Streaming, reviews, and everything in between.',
+      niche: ['Gaming', 'Tech', 'Entertainment'],
+      location: 'Port Harcourt, Nigeria',
+      email: 'chisom@creators.io',
+      platforms: [
+        { platform: 'youtube', handle: 'ChisomGames', followers: 156000, verified: false },
+        { platform: 'tiktok', handle: '@chisomgames', followers: 89000, verified: false },
+        { platform: 'instagram', handle: '@chisomgames', followers: 42000, verified: false },
+      ],
+      createdAt: '2026-03-15T00:00:00Z',
+    },
+    {
+      id: 'cr7',
+      name: 'Bola Adewale',
+      avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Bola',
+      bio: 'Personal trainer & nutrition expert. Your transformation starts here.',
+      niche: ['Fitness', 'Bodybuilding', 'Nutrition'],
+      location: 'Ibadan, Nigeria',
+      email: 'bola@creators.io',
+      platforms: [
+        { platform: 'instagram', handle: '@bolafit', followers: 134000, verified: false },
+        { platform: 'youtube', handle: 'Bola Fitness', followers: 78000, verified: false },
+      ],
+      createdAt: '2026-04-01T00:00:00Z',
+    },
+    {
+      id: 'cr8',
+      name: 'Ngozi Okafor',
+      avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Ngozi',
+      bio: 'Food, fitness and feel-good content. Healthy can be delicious.',
+      niche: ['Food', 'Fitness', 'Wellness'],
+      location: 'Enugu, Nigeria',
+      email: 'ngozi@creators.io',
+      platforms: [
+        { platform: 'instagram', handle: '@ngozifit', followers: 96000, verified: false },
+        { platform: 'tiktok', handle: '@ngozifit', followers: 145000, verified: false },
+      ],
+      createdAt: '2026-04-10T00:00:00Z',
+    },
+  ],
+  deliverables: [
+    // Campaign c1 — Glow Up (LIVE)
+    { id: 'd1', campaignId: 'c1', creatorId: 'cr1', platform: 'instagram', type: 'reel', description: '60s Reel showcasing morning skincare routine with SPF serum', dueDate: '2026-07-15', status: 'completed', contentUrl: 'https://drive.google.com/file/d/reel1', postUrl: 'https://instagram.com/p/reel1', submittedAt: '2026-07-12T10:00:00Z', approvedAt: '2026-07-13T09:00:00Z', liveAt: '2026-07-15T10:00:00Z', completedAt: '2026-07-22T10:00:00Z', createdAt: '2026-06-20T00:00:00Z' },
+    { id: 'd2', campaignId: 'c1', creatorId: 'cr1', platform: 'instagram', type: 'story', description: '3x stories with swipe-up link and discount code', dueDate: '2026-07-20', status: 'live', contentUrl: 'https://drive.google.com/file/d/story1', postUrl: 'https://instagram.com/stories/cr1', submittedAt: '2026-07-18T08:00:00Z', approvedAt: '2026-07-19T10:00:00Z', liveAt: '2026-07-20T12:00:00Z', createdAt: '2026-06-20T00:00:00Z' },
+    { id: 'd3', campaignId: 'c1', creatorId: 'cr1', platform: 'tiktok', type: 'video', description: 'TikTok "Get Ready With Me" featuring SPF serum', dueDate: '2026-08-01', status: 'in_review', contentUrl: 'https://drive.google.com/file/d/tiktok1', submittedAt: '2026-07-30T14:00:00Z', createdAt: '2026-06-20T00:00:00Z' },
+    { id: 'd4', campaignId: 'c1', creatorId: 'cr2', platform: 'instagram', type: 'post', description: 'Static post: product flat lay with caption and hashtags', dueDate: '2026-07-18', status: 'completed', contentUrl: 'https://drive.google.com/file/d/post1', postUrl: 'https://instagram.com/p/post1', submittedAt: '2026-07-16T11:00:00Z', approvedAt: '2026-07-17T09:00:00Z', liveAt: '2026-07-18T10:00:00Z', completedAt: '2026-07-25T10:00:00Z', createdAt: '2026-06-20T00:00:00Z' },
+    { id: 'd5', campaignId: 'c1', creatorId: 'cr3', platform: 'tiktok', type: 'video', description: 'TikTok skincare + fitness routine featuring SPF', dueDate: '2026-07-25', status: 'live', contentUrl: 'https://drive.google.com/file/d/v1', postUrl: 'https://tiktok.com/@zara/v1', submittedAt: '2026-07-23T09:00:00Z', approvedAt: '2026-07-24T11:00:00Z', liveAt: '2026-07-25T10:00:00Z', createdAt: '2026-06-20T00:00:00Z' },
+    { id: 'd6', campaignId: 'c1', creatorId: 'cr4', platform: 'instagram', type: 'reel', description: 'Fashion x skincare reel: summer glow outfit + SPF routine', dueDate: '2026-08-05', status: 'approved', contentUrl: 'https://drive.google.com/file/d/reel2', approvedAt: '2026-08-03T10:00:00Z', submittedAt: '2026-08-01T15:00:00Z', createdAt: '2026-06-20T00:00:00Z' },
+    { id: 'd7', campaignId: 'c1', creatorId: 'cr4', platform: 'instagram', type: 'story', description: '2x stories with poll and product link', dueDate: '2026-08-10', status: 'executing', createdAt: '2026-06-20T00:00:00Z' },
+
+    // Campaign c2 — TechLaunch (EXECUTING)
+    { id: 'd8', campaignId: 'c2', creatorId: 'cr2', platform: 'youtube', type: 'video', description: '10-min unboxing video of X1 Pro with first impressions', dueDate: '2026-08-20', status: 'in_review', contentUrl: 'https://drive.google.com/file/d/yt1', submittedAt: '2026-08-15T10:00:00Z', createdAt: '2026-07-22T00:00:00Z' },
+    { id: 'd9', campaignId: 'c2', creatorId: 'cr2', platform: 'instagram', type: 'post', description: 'Aesthetic product photo with specs highlight caption', dueDate: '2026-08-25', status: 'executing', createdAt: '2026-07-22T00:00:00Z' },
+    { id: 'd10', campaignId: 'c2', creatorId: 'cr5', platform: 'youtube', type: 'video', description: '15-min deep dive review: X1 Pro vs competitors', dueDate: '2026-08-28', status: 'executing', createdAt: '2026-07-22T00:00:00Z' },
+    { id: 'd11', campaignId: 'c2', creatorId: 'cr5', platform: 'x', type: 'tweet', description: 'Thread: 10 things you need to know about the X1 Pro', dueDate: '2026-08-22', status: 'revision_requested', contentUrl: 'https://drive.google.com/file/d/thread1', revisionNote: 'Please emphasize the camera specs more and add the pre-order link in tweet 3', submittedAt: '2026-08-18T09:00:00Z', createdAt: '2026-07-22T00:00:00Z' },
+    { id: 'd12', campaignId: 'c2', creatorId: 'cr6', platform: 'tiktok', type: 'video', description: 'TikTok gaming performance test: X1 Pro gaming session', dueDate: '2026-08-30', status: 'executing', createdAt: '2026-07-22T00:00:00Z' },
+
+    // Campaign c3 — Fit & Fresh (DRAFT)
+    { id: 'd13', campaignId: 'c3', creatorId: 'cr3', platform: 'instagram', type: 'reel', description: 'Post-workout shake reel featuring PureBlend Protein', dueDate: '2026-09-08', status: 'executing', createdAt: '2026-08-10T00:00:00Z' },
+    { id: 'd14', campaignId: 'c3', creatorId: 'cr7', platform: 'instagram', type: 'post', description: 'Gym progress post with PureBlend mention', dueDate: '2026-09-12', status: 'executing', createdAt: '2026-08-10T00:00:00Z' },
+    { id: 'd15', campaignId: 'c3', creatorId: 'cr8', platform: 'tiktok', type: 'video', description: 'Recipe TikTok: 3 PureBlend smoothie ideas', dueDate: '2026-09-15', status: 'executing', createdAt: '2026-08-10T00:00:00Z' },
+  ],
+  metrics: [
+    // d1 — Amara Instagram Reel (completed)
+    { id: 'm1', deliverableId: 'd1', impressions: 312000, reach: 248000, likes: 18400, comments: 1240, shares: 3200, saves: 5600, views: 289000, clicks: 4100, engagementRate: 9.2, loggedAt: '2026-07-22T12:00:00Z', updatedAt: '2026-07-22T12:00:00Z' },
+    // d2 — Amara Instagram Story (live)
+    { id: 'm2', deliverableId: 'd2', impressions: 98000, reach: 87000, likes: 0, comments: 340, shares: 890, saves: 0, views: 94000, clicks: 2800, engagementRate: 4.8, loggedAt: '2026-07-25T10:00:00Z', updatedAt: '2026-07-25T10:00:00Z' },
+    // d4 — Kofi Instagram Post (completed)
+    { id: 'm3', deliverableId: 'd4', impressions: 142000, reach: 115000, likes: 7800, comments: 520, shares: 1100, saves: 2300, views: 0, clicks: 1900, engagementRate: 8.2, loggedAt: '2026-07-25T09:00:00Z', updatedAt: '2026-07-25T09:00:00Z' },
+    // d5 — Zara TikTok (live)
+    { id: 'm4', deliverableId: 'd5', impressions: 520000, reach: 410000, likes: 42000, comments: 3100, shares: 8900, saves: 0, views: 498000, clicks: 5600, engagementRate: 13.2, loggedAt: '2026-07-28T11:00:00Z', updatedAt: '2026-07-28T11:00:00Z' },
+    // d8 — Kofi YouTube unboxing (in_review — partial preview metrics)
+    { id: 'm5', deliverableId: 'd8', impressions: 0, reach: 0, likes: 0, comments: 0, shares: 0, saves: 0, views: 0, clicks: 0, engagementRate: 0, loggedAt: '2026-08-15T10:00:00Z', updatedAt: '2026-08-15T10:00:00Z' },
+  ],
+};
+
+export default SEED;
