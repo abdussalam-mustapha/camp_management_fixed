@@ -1,9 +1,9 @@
 import { useLocation } from 'react-router-dom';
-import { Bell, Shield, Sun, Moon, Building2, User } from 'lucide-react';
+import { Bell, Shield, Sun, Moon, Building2, User, Menu } from 'lucide-react';
 import { useApp } from '../../store/AppContext';
 
 const TITLES: Record<string, string> = {
-  '/campaigns': 'Campaigns',
+  '/campaign-influencer': 'Campaigns',
   '/creators': 'Creators',
   '/reports': 'Reports & Analytics',
 };
@@ -21,6 +21,12 @@ export default function TopBar() {
   return (
     <header className="h-16 border-b border-slate-200 dark:border-surface-800/60 bg-white dark:bg-surface-900 flex items-center justify-between px-6 shrink-0 transition-colors duration-200">
       <div className="flex items-center gap-3">
+        <button
+          className="lg:hidden text-slate-500 hover:text-slate-900 dark:text-surface-400 dark:hover:text-white"
+          onClick={() => dispatch({ type: 'MOBILE_MENU_TOGGLE' })}
+        >
+          <Menu size={20} />
+        </button>
         <h1 className="text-slate-900 dark:text-white font-bold text-xl tracking-tight">{title}</h1>
       </div>
 

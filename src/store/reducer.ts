@@ -32,6 +32,7 @@ export type AppAction =
   | { type: 'THEME_TOGGLE' }
   | { type: 'THEME_SET'; payload: 'light' | 'dark' }
   | { type: 'BRAND_NAME_SET'; payload: string }
+  | { type: 'MOBILE_MENU_TOGGLE' }
   // Reset
   | { type: 'RESET_STATE'; payload: AppState };
 
@@ -48,6 +49,9 @@ export function appReducer(state: AppState, action: AppAction): AppState {
 
     case 'BRAND_NAME_SET':
       return { ...state, activeBrandName: action.payload };
+
+    case 'MOBILE_MENU_TOGGLE':
+      return { ...state, isMobileMenuOpen: !state.isMobileMenuOpen };
 
     // ── Campaigns ──
     case 'CAMPAIGN_CREATE':

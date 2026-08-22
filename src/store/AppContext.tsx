@@ -15,6 +15,7 @@ function loadState(): AppState {
         ...parsed,
         theme: parsed.theme || 'light',
         activeBrandName: parsed.activeBrandName || 'Burger King',
+        isMobileMenuOpen: false,
       };
     }
   } catch {

@@ -137,6 +137,7 @@ export interface AppState {
   currentRole: UserRole;
   theme: 'light' | 'dark';
   activeBrandName: string;
+  isMobileMenuOpen: boolean;
 }
 
 // ============================================================

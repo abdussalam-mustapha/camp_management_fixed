@@ -15,6 +15,12 @@ export default function Sidebar() {
   const { state, dispatch, resetToSeed } = useApp();
   const isDark = state.theme === 'dark';
 
+  const handleNavClick = () => {
+    if (state.isMobileMenuOpen) {
+      dispatch({ type: 'MOBILE_MENU_TOGGLE' });
+    }
+  };
+
   return (
     <aside className="w-64 h-screen bg-white dark:bg-surface-900 border-r border-slate-200 dark:border-surface-800/60 flex flex-col transition-colors duration-200 shrink-0">
       {/* Logo */}
@@ -37,6 +43,7 @@ export default function Sidebar() {
             <NavLink
               key={to}
               to={to}
+              onClick={handleNavClick}
               className={({ isActive }) =>
                 `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all duration-150 ${
                   isActive
