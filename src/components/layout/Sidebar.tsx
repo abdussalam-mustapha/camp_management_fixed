@@ -6,7 +6,7 @@ import {
 import { useApp } from '../../store/AppContext';
 
 const NAV = [
-  { to: '/campaign-influencer', label: 'Campaigns', icon: Megaphone },
+  { to: '/campaigns', label: 'Campaigns', icon: Megaphone },
   { to: '/creators', label: 'Creators', icon: Users },
   { to: '/reports', label: 'Reports', icon: BarChart3 },
 ];

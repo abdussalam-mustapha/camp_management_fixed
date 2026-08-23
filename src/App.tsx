@@ -33,9 +33,9 @@ function AppContent() {
         <TopBar />
         <main className="flex-1 overflow-y-auto p-6 sm:p-8 lg:p-10">
           <Routes>
-            <Route path="/" element={<Navigate to="/campaign-influencer" replace />} />
-            <Route path="/campaign-influencer" element={<CampaignsPage />} />
-            <Route path="/campaign-influencer/:id" element={<CampaignDetailPage />} />
+            <Route path="/" element={<Navigate to="/campaigns" replace />} />
+            <Route path="/campaigns" element={<CampaignsPage />} />
+            <Route path="/campaigns/:id" element={<CampaignDetailPage />} />
             <Route path="/creators" element={<CreatorsPage />} />
             <Route path="/creators/:id" element={<CreatorProfilePage />} />
             <Route path="/reports" element={<ReportsPage />} />

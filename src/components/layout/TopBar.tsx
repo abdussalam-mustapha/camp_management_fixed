@@ -3,7 +3,7 @@ import { Bell, Shield, Sun, Moon, Building2, User, Menu } from 'lucide-react';
 import { useApp } from '../../store/AppContext';
 
 const TITLES: Record<string, string> = {
-  '/campaign-influencer': 'Campaigns',
+  '/campaigns': 'Campaigns',
   '/creators': 'Creators',
   '/reports': 'Reports & Analytics',
 };
