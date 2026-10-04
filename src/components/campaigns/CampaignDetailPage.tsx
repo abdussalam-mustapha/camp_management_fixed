@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import {
   ArrowLeft, Hash, ExternalLink,
-  Clock, BarChart2, Plus, Link2, Download
+  Clock, BarChart2, Plus, Link2, Download, RefreshCw
 } from 'lucide-react';
 import { useApp } from '../../store/AppContext';
 import { getCampaignKPIs } from '../../store/selectors';
@@ -91,6 +91,15 @@ export default function CampaignDetailPage() {
               title="Download Campaign Excel Report"
             >
               <Download size={15} /> Export Campaign Excel
+            </Button>
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={() => window.location.reload()}
+              className="gap-2 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 dark:bg-emerald-500/20 dark:text-emerald-300 dark:hover:bg-emerald-500/30 border-emerald-200 dark:border-emerald-500/30"
+              title="Sync Live Metrics from Connected Accounts"
+            >
+              <RefreshCw size={15} className="text-emerald-600 dark:text-emerald-400" /> Sync Live Data
             </Button>
             {state.currentRole === 'agency' && (
               <Link to={`/reports`}>

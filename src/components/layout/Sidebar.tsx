@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import {
-  Users, BarChart3, Megaphone,
+  Users, BarChart3, Megaphone, Link,
   Zap, RefreshCw, Sun, Moon, Building2
 } from 'lucide-react';
 import { useApp } from '../../store/AppContext';
@@ -9,6 +9,7 @@ const NAV = [
   { to: '/campaigns', label: 'Campaigns', icon: Megaphone },
   { to: '/creators', label: 'Creators', icon: Users },
   { to: '/reports', label: 'Reports', icon: BarChart3 },
+  { to: '/integrations', label: 'Integrations', icon: Link },
 ];
 
 export default function Sidebar() {

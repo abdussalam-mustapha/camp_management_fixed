@@ -7,6 +7,8 @@ import CampaignDetailPage from './components/campaigns/CampaignDetailPage';
 import CreatorsPage from './components/creators/CreatorsPage';
 import CreatorProfilePage from './components/creators/CreatorProfilePage';
 import ReportsPage from './components/reports/ReportsPage';
+import IntegrationsPage from './components/settings/IntegrationsPage';
+import AuthCallbackPage from './components/auth/AuthCallbackPage';
 
 function AppContent() {
   const { state, dispatch } = useApp();
@@ -40,6 +42,8 @@ function AppContent() {
             <Route path="/creators/:id" element={<CreatorProfilePage />} />
             <Route path="/reports" element={<ReportsPage />} />
             <Route path="/reports/:id" element={<ReportsPage />} />
+            <Route path="/integrations" element={<IntegrationsPage />} />
+            <Route path="/auth/callback" element={<AuthCallbackPage />} />
           </Routes>
         </main>
       </div>

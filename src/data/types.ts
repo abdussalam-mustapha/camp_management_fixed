@@ -126,6 +126,21 @@ export interface DeliverableMetrics {
 }
 
 // ============================================================
+// Platform Connection
+// ============================================================
+
+export interface PlatformConnection {
+  id: string;
+  platform: Platform;
+  platformUserId: string;
+  platformUsername: string;
+  profileData: any;
+  connectedAt: string;
+  lastSyncAt?: string;
+  isActive: boolean;
+}
+
+// ============================================================
 // App State
 // ============================================================
 
@@ -134,6 +149,7 @@ export interface AppState {
   creators: Creator[];
   deliverables: Deliverable[];
   metrics: DeliverableMetrics[];
+  platformConnections: PlatformConnection[];
   currentRole: UserRole;
   theme: 'light' | 'dark';
   activeBrandName: string;

@@ -5,6 +5,7 @@ import type {
   Deliverable,
   DeliverableMetrics,
   UserRole,
+  PlatformConnection,
 } from '../data/types';
 
 // ── Action Types ──────────────────────────────────────────────
@@ -26,6 +27,10 @@ export type AppAction =
   // Metrics
   | { type: 'METRICS_LOG'; payload: DeliverableMetrics }
   | { type: 'METRICS_UPDATE'; payload: { id: string; changes: Partial<DeliverableMetrics> } }
+  // Platform Connections
+  | { type: 'PLATFORM_CONNECTION_ADD'; payload: PlatformConnection }
+  | { type: 'PLATFORM_CONNECTION_UPDATE'; payload: { id: string; changes: Partial<PlatformConnection> } }
+  | { type: 'PLATFORM_CONNECTION_REMOVE'; payload: { id: string } }
   // Role
   | { type: 'ROLE_SWITCH'; payload: UserRole }
   // Theme & Brand
@@ -93,8 +98,16 @@ export function appReducer(state: AppState, action: AppAction): AppState {
       };
 
     // ── Creators ──
-    case 'CREATOR_ADD':
+    case 'CREATOR_ADD': {
+      const exists = state.creators.some(c => c.id === action.payload.id);
+      if (exists) {
+        return {
+          ...state,
+          creators: state.creators.map(c => c.id === action.payload.id ? action.payload : c)
+        };
+      }
       return { ...state, creators: [...state.creators, action.payload] };
+    }
 
     case 'CREATOR_UPDATE':
       return {
@@ -105,8 +118,16 @@ export function appReducer(state: AppState, action: AppAction): AppState {
       };
 
     // ── Deliverables ──
-    case 'DELIVERABLE_ASSIGN':
+    case 'DELIVERABLE_ASSIGN': {
+      const exists = state.deliverables.some(d => d.id === action.payload.id);
+      if (exists) {
+        return {
+          ...state,
+          deliverables: state.deliverables.map(d => d.id === action.payload.id ? action.payload : d)
+        };
+      }
       return { ...state, deliverables: [...state.deliverables, action.payload] };
+    }
 
     case 'DELIVERABLE_STATUS_UPDATE': {
       const now = new Date().toISOString();
@@ -140,8 +161,16 @@ export function appReducer(state: AppState, action: AppAction): AppState {
       };
 
     // ── Metrics ──
-    case 'METRICS_LOG':
+    case 'METRICS_LOG': {
+      const exists = state.metrics.some(m => m.id === action.payload.id);
+      if (exists) {
+        return {
+          ...state,
+          metrics: state.metrics.map(m => m.id === action.payload.id ? action.payload : m)
+        };
+      }
       return { ...state, metrics: [...state.metrics, action.payload] };
+    }
 
     case 'METRICS_UPDATE':
       return {
@@ -149,6 +178,24 @@ export function appReducer(state: AppState, action: AppAction): AppState {
         metrics: state.metrics.map(m =>
           m.id === action.payload.id ? { ...m, ...action.payload.changes, updatedAt: new Date().toISOString() } : m
         ),
+      };
+
+    // ── Platform Connections ──
+    case 'PLATFORM_CONNECTION_ADD':
+      return { ...state, platformConnections: [...state.platformConnections, action.payload] };
+
+    case 'PLATFORM_CONNECTION_UPDATE':
+      return {
+        ...state,
+        platformConnections: state.platformConnections.map(pc =>
+          pc.id === action.payload.id ? { ...pc, ...action.payload.changes } : pc
+        ),
+      };
+
+    case 'PLATFORM_CONNECTION_REMOVE':
+      return {
+        ...state,
+        platformConnections: state.platformConnections.filter(pc => pc.id !== action.payload.id),
       };
 
     // ── Role ──

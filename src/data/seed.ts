@@ -5,6 +5,7 @@ const SEED: AppState = {
   theme: 'light',
   activeBrandName: 'Burger King',
   isMobileMenuOpen: false,
+  platformConnections: [],
   campaigns: [
     {
       id: 'c1',
@@ -213,6 +214,7 @@ const SEED: AppState = {
     // d8 — Kofi YouTube unboxing (in_review — partial preview metrics)
     { id: 'm5', deliverableId: 'd8', impressions: 0, reach: 0, likes: 0, comments: 0, shares: 0, saves: 0, views: 0, clicks: 0, engagementRate: 0, loggedAt: '2026-08-15T10:00:00Z', updatedAt: '2026-08-15T10:00:00Z' },
   ],
+  platformConnections: [],
 };
 
 export default SEED;
